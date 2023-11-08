@@ -1,6 +1,9 @@
 class CurrentUserController < ApplicationController
   def index
-    users = User.all
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+
+    pagy, users = pagy(User.all, items: per_page, page: page)
     render json: users, status: :ok
   end
   

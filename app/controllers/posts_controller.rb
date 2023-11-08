@@ -4,8 +4,11 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
-    render json: @posts, status: :ok
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+
+    pagy, posts = pagy(Post.all, items: per_page, page: page)
+    render json: posts, status: :ok
   end
 
   # GET /posts/1

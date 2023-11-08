@@ -57,3 +57,5 @@ gem "devise-jwt", "~> 0.11.0"
 gem "figaro", "~> 1.2"
 
 gem "active_model_serializers", "~> 0.10.14"
+
+gem "pagy", "~> 6.1"
